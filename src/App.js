@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import { Router, Route,Switch, Routes} 
+from 'react-router-dom';
+import Navbar from "./Components/Layout/Navbar";
+import Dashboard from "./Components/Dashboard";
+import Login from "./Components/Login";
+import AddTask from "./Components/AddTask";
+import Task from "./Components/Task";
+import Signup from "./Components/Signup";
+import Edittask from "./Components/Edittask";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div className='App'>
+        
+          {/* <Navbar/> */}
+          
+    <Routes>
+    
+      <Route exact path='/Dashboard' element={<Dashboard/>}/>
+      <Route exact path='/AddTask' element={<AddTask/>}/>
+      <Route exact path='/' element={<Login/>}/>
+      <Route exact path='/Signup' element={<Signup/>}/>
+       <Route exact path='edit/:id' element={<Edittask/>}/>
+    </Routes>
     </div>
-  );
-}
+    
+  )
+};
 
 export default App;
+
